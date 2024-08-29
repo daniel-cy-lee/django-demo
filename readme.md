@@ -51,3 +51,9 @@ py manage.py qlite3
 
 5 directories, 18 files
 
+TODO: 
+implement Page 22 - 27
+D
+Dinot 
+D
+skip page 22 to page 27
