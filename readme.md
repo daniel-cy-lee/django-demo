@@ -53,7 +53,14 @@ py manage.py qlite3
 
 TODO: 
 implement Page 22 - 27
-D
-Dinot 
-D
-skip page 22 to page 27
+
+下載模板
+django/private_diary 
+.
+├── diary
+│   └── templates
+├── private_diary
+└── static
+    ├── assets
+    │   └── img
+    ├── css
