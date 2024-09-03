@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, Django!</title>
-</head>
-<body>
-    <h1>Hello, Django!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Private Diary{% endblock %}
+
+{% block header %}
+<!-- Header-->
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+	<div class="container px-5">
+	    <h1 class="masthead-heading mb-0">Privatey diary</h1>
+	    <h2 class="masthead-subheading mb-0">線上個人日記</h2>
+	    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+	</div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+{% endblock %}
+
+{% block contents %}
+
+<!-- Content section 1 in index.html-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'assets/img/01.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Web diary</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content section 2 in index.html-->
+<section>
+    <div class="container px-5">
+	<div class="row gx-5 align-items-center">
+	    <div class="col-lg-6">
+		<div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'assets/img/02.jpg' %}" alt="..." /></div>
+	    </div>
+	    <div class="col-lg-6">
+		<div class="p-5">
+		    <h2 class="display-4">Save your diary</h2>
+		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+		</div>
+	    </div>
+	</div>
+    </div>
+</section>
+{% endblock contents %} <!-- 語法"% endblock [bolckname] %" ;也就是說此處可寫成"% endblock %"或"% endblock contents %" --> 
 
