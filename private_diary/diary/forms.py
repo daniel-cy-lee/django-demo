@@ -9,15 +9,15 @@ class InquiryForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(self, *args, **kwargs)
 
-        self.fields["name"].widget_attrs["class"] = "form_control"
-        self.fields["name"].widget_attrs["placeholder"] = "請輸入您的姓名"
+        self.fields["name"].widget.attrs["class"] = "form_control"
+        self.fields["name"].widget.attrs["placeholder"] = "請輸入您的姓名"
 
 
-        self.fields["email"].widget_attrs["class"] = "form_control"
-        self.fields["email"].widget_attrs["placeholder"] = "請輸入您的信箱"
+        self.fields["email"].widget.attrs["class"] = "form_control"
+        self.fields["email"].widget.attrs["placeholder"] = "請輸入您的信箱"
 
-        self.fields["title"].widget_attrs["class"] = "form_control"
-        self.fields["title"].widget_attrs["placeholder"] = "請輸入信件主旨"
+        self.fields["title"].widget.attrs["class"] = "form_control"
+        self.fields["title"].widget.attrs["placeholder"] = "請輸入信件主旨"
 
-        self.fields["message"].widget_attrs["class"] = "form_control"
-        self.fields["message"].widget_attrs["placeholder"] = "請輸入信件內容"
+        self.fields["message"].widget.attrs["class"] = "form_control"
+        self.fields["message"].widget.attrs["placeholder"] = "請輸入信件內容"
