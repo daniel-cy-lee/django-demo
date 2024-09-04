@@ -27,8 +27,9 @@ SECRET_KEY = 'django-insecure-&0q+8s3fq(sl5y3&_3gaqt&db-cn0)vm99_02dmnzs*1vw^l-0
 DEBUG = True
 
 
-# 青運: 192.168.115.254 192.168.1.108 是我電腦的IP 
-ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108']
+# 青運: 192.168.115.254 192.168.1.108 是我電腦的IP,
+# eb40-1-200-22-130.ngrok-free.appeb40-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
+ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', 'eb40-1-200-22-130.ngrok-free.app']
 
 
 # Application definition
@@ -129,3 +130,47 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, "static"),
      )
+
+# log日誌設定
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    # django
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'diary': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'dev',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_debug.log'),
+        },
+    },
+
+    'formatters':{
+        'dev':{
+            'format':'\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s'
+            ]),
+        },
+    }
+}
