@@ -1,4 +1,6 @@
+import os
 from django import forms
+from django.core.mail import EmailMessage
 
 class InquiryForm(forms.Form):
     name = forms.CharField(label="姓名", max_length=30)
@@ -24,3 +26,19 @@ class InquiryForm(forms.Form):
 
     def send_email(self):
         name = self.cleaned_data["name"]
+        email = self.cleaned_data["email"]
+        title = self.cleaned_data["title"]
+        message = self.cleaned_data["message"]
+
+        subject = "聯繫我們{}",format(title)
+        message = "寄件者:{}\n信箱:{}\n信件內容:{}\n".format(name, email, message)
+        from_email = os.environ.get("FROM_EMAIL")
+        to_list = [
+            os.environ.get("FROM_EMAIL")
+        ]
+        cc_list = [
+            email
+        ]
+
+        message = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list, cc=cc_list)
+        message.send()
