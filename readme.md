@@ -47,11 +47,11 @@ implement Page 22 - 27
 
 下載模板  
 django/private_diary   
-.
-├── diary
-│   └── templates
-├── private_diary
-└── static
-    ├── assets
-    │   └── img
-    ├── css
+.  
+├── diary  
+│   └── templates  
+├── private_diary  
+└── static  
+    ├── assets  
+    │   └── img  
+    ├── css  
