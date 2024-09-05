@@ -30,8 +30,8 @@ class InquiryForm(forms.Form):
         title = self.cleaned_data["title"]
         message = self.cleaned_data["message"]
 
-        subject = "聯繫我們{}",format(title)
-        message = "寄件者:{}\n信箱:{}\n信件內容:{}\n".format(name, email, message)
+        subject = "[聯繫我們]{}".format(title)
+        message = "寄件者:{}\n信箱:{}\n主旨:{}\n信件內容:{}\n".format(name, email,subject, message)
         from_email = os.environ.get("FROM_EMAIL")
         to_list = [
             os.environ.get("FROM_EMAIL")

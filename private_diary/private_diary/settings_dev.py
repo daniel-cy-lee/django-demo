@@ -26,10 +26,9 @@ SECRET_KEY = 'django-insecure-&0q+8s3fq(sl5y3&_3gaqt&db-cn0)vm99_02dmnzs*1vw^l-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 # 青運: 192.168.115.254 192.168.1.108 是我電腦的IP,
-# eb40-1-200-22-130.ngrok-free.appeb40-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
-ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', 'eb40-1-200-22-130.ngrok-free.app']
+# 3952-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
+ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', '3952-1-200-22-130.ngrok-free.app']
 
 # Application definition
 
@@ -127,4 +126,6 @@ LOGGING = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "..//app-messages"  # change this to a proper location

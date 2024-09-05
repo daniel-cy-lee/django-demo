@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from private_diary.mypassword import MyPassword
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +29,8 @@ DEBUG = True
 
 
 # 青運: 192.168.115.254 192.168.1.108 是我電腦的IP,
-# eb40-1-200-22-130.ngrok-free.appeb40-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
-ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', 'eb40-1-200-22-130.ngrok-free.app']
+# 3952-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
+ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', '3952-1-200-22-130.ngrok-free.app']
 
 
 # Application definition
@@ -174,3 +175,16 @@ LOGGING = {
         },
     }
 }
+
+#(smtp backend) 郵寄伺服器設定
+# 參考資料:
+# https://www.learncodewithmike.com/2020/05/django-send-email.html #Django Email SMTP設定
+# https://www.learncodewithmike.com/2020/02/python-email.html #Python實戰應用]Python寄送Gmail電子郵件實作教學
+# https://support.google.com/accounts/answer/185833?sjid=10449765731069928928-AP #gmail 使用應用程式密碼登入帳戶
+# https://docs.djangoproject.com/en/5.1/topics/email/#smtp-backend  #[英文]官方EMAIL教學
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "dennytpe@gmail.com"      # 'your_email@gmail.com'
+EMAIL_HOST_PASSWORD =  MyPassword.password # 'your_password'
