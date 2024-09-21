@@ -32,14 +32,6 @@ class StockModel(models.Model):
 
     name = models.CharField(max_length=20, help_text='Stock name, ex 元大美債20年')
 
-import uuid # Required for unique book instances
-
-class StockInstance(models.Model):
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4,
-                          help_text="Unique ID for this particular stock query data")
-    book = models.ForeignKey('StockModel', on_delete=models.RESTRICT, null=True)
-
     bid_price = models.FloatField(help_text='bid price')
     price_chage_ratio = models.FloatField(help_text='price chage ratio in %')
     ask_price_first = models.FloatField(help_text='ask (sell) price data 1')
