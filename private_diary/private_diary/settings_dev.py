@@ -25,15 +25,15 @@ SECRET_KEY = 'django-insecure-&0q+8s3fq(sl5y3&_3gaqt&db-cn0)vm99_02dmnzs*1vw^l-0
 
 # Allow your ngrok URL
 CSRF_TRUSTED_ORIGINS = [
-    'https://6c57-1-200-22-130.ngrok-free.app',
+    'https://fast-lionfish-picked.ngrok-free.app',
 ]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # 青運: 192.168.115.254 192.168.1.108 是我電腦的IP,
-# 6c57-1-200-22-130.ngrok-free.app是今天分配到的 ngrok DNS
-ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', '6c57-1-200-22-130.ngrok-free.app']
+# fast-lionfish-picked.ngrok-free.app是今天分配到的 ngrok DNS
+ALLOWED_HOSTS = ['192.168.115.254','192.168.1.108', 'fast-lionfish-picked.ngrok-free.app','w3.landscape.idv.tw']
 
 # Application definition
 
