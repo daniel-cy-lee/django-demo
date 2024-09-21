@@ -55,3 +55,32 @@ django/private_diary
     ├── assets  
     │   └── img  
     ├── css  
+
+
+[Add mystock app]  
+django-admin startapp mystock  
+  
+~/django/private_diary $ tree -d -I  __pycache__  
+.  
+├── diary  
+│   ├── migrations  
+│   └── templates  
+├── mystock  
+│   └── migrations  
+├── private_diary  
+└── static  
+    ├── assets  
+    │   └── img  
+    ├── css  
+    └── js  
+  
+$ tree mystock/  
+mystock/  
+├── admin.py  
+├── apps.py  
+├── __init__.py  
+├── migrations  
+│   └── __init__.py  
+├── models.py  
+├── tests.py  
+└── views.py  
