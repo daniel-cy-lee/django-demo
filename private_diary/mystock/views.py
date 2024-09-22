@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from . import models
+from . import stock_query
 
 # Create your views here.
 class StockListView(ListView):
@@ -10,27 +11,21 @@ class StockListView(ListView):
   def get_queryset(self):
     # get data
     # stock_query.py
+    stocks_data = stock_query.query()
 
-    '''
-    for book_data in books_data:
-                # Assuming the book_data contains fields like 'title', 'author', 'summary', 'isbn'
-                title = book_data.get('title')
-                author_name = book_data.get('author')  # Assuming the author is a simple name
-                summary = book_data.get('summary')
-                isbn = book_data.get('isbn')
-
-                # Find or create the author (assuming Author model has a name field)
-                author, created = Author.objects.get_or_create(name=author_name)
-
-                # Find or create the book
-                Book.objects.update_or_create(
-                    isbn=isbn,
-                    defaults={
-                        'title': title,
-                        'author': author,
-                        'summary': summary
-                    }
-                )
-    '''
+    models.StockModel.objects.update_or_create(
+        stock_id=stock_data.stock_id,
+        defaults={
+            'name': stock_data.name,
+            'bid_price': stock_data.bid,
+            'price_chage_ratio': stock_data.cratio,
+            'ask_price_first': float(stock_data.ask_list[0]),
+            'ask_price_last': float(stock_data.ask_list[-1]),
+            'buy_price_first': float(stock_data.buy_list[0]),
+            'buy_price_last': float(stock_data.buy_list[-1]),
+            'open_price': stock_data.open,
+            'date_time': stock_data.time_int,
+        }
+    )
     # Return the updated list of books from the database
     return models.StockModel.objects.all()

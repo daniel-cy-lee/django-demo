@@ -1,8 +1,6 @@
 import requests
 import time
 import json
-from mypassword import MyPassword
-from line_notify import notify
 import traceback
 import logging
 from dataclasses import dataclass
@@ -135,6 +133,8 @@ print(stock)
 '''
 
 def stock_2_line():
+  from mypassword import MyPassword
+  from line_notify import notify
   stock = query()
 
   msg_str = "\n"
