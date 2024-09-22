@@ -40,6 +40,8 @@ class StockModel(models.Model):
     buy_price_first = models.FloatField(help_text='buy price data 1')
     buy_price_last = models.FloatField(help_text='buy price data 5')
 
+    high_price = models.FloatField(default=0.0, help_text='open price')
+    low_price = models.FloatField(default=0.0,help_text='open price')
     open_price = models.FloatField(help_text='open price')
 
     date_time = models.DateTimeField()
