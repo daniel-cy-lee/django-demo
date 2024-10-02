@@ -9,7 +9,7 @@
     padding:10px;
   }
 </style>
-<title>This is stock list .html</title>
+<title>My stock list.html</title>
 </head>
 <body>
 {% if stockmodel_list %}  <!--  the_model_name_list -->
@@ -51,5 +51,11 @@
   {% else %}
     <p>There are no stock data fetched.</p>
   {% endif %}
+  <!-- Button to trigger Line notification -->
+  <button type="button" onclick="window.location.href='{% url 'stock_app:send-notification' %}'">Send Notification</button>
+
+  <!-- Button to refresh stock data -->
+  <button type="button" onclick="window.location.href='{% url 'stock_app:refresh-data' %}'">Refresh Data</button>
+
 </body>
 </html>
